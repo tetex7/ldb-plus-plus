@@ -1,0 +1,11 @@
+{
+    "workspace.library": [
+        "/opt/l61/lib",
+        "/opt/l61/stup",
+        "/opt/l61"
+    ],
+    "diagnostics.disable": ["lowercase-global"],
+    "runtime.builtin": {
+        "os": "disable"
+    }
+}

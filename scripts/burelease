@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+
+if [[ ! -e "/etc/os-release" ]]; then
+    echo -e "ERROR: no os-release"
+    exit 1
+fi
+SHOW_DIS=1
+
+
+id()
+{
+    if [[ ${SHOW_DIS} == 1 ]]; then
+        echo "Distributor ID: ${ID}"
+    else
+        echo ${ID}
+    fi
+}
+
+name()
+{
+    if [[ ${SHOW_DIS} == 1 ]]; then
+        echo "Description: ${NAME}"
+    else
+        echo ${NAME}
+    fi
+}
+
+
+shelp()
+{
+cat <<_ACEOF
+os information.
+
+Usage: lsb_release [OPTION]...
+With no OPTION specified defaults to -v.
+
+Options:
+  -v, --version
+    Display the version of the LSB specification against which the distribution is compliant.
+  -i, --id
+    Display the string id of the distributor.
+  -d, --description
+    Display the single line text description of the distribution.
+  -h, --help
+    Display this message.
+
+_ACEOF
+
+}
+
+. /etc/os-release
+for i in $@; do
+case $i in
+    -h | --help )
+    shelp
+    exit 0
+;;
+    -v | --version )
+    echo "v1.0"
+    exit 0
+;;
+    -nd )
+        SHOW_DIS=0
+;;
+    -i | --id )
+    id
+    exit 0
+;;
+    -d | --description )
+    name
+    exit 0
+;;
+esac
+done

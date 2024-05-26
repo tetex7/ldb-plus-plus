@@ -1,0 +1,13 @@
+gcc
+
+-Wall 
+-Wno-sizeof-pointer-div 
+-fno-strict-aliasing 
+-fpermissive
+
+%c -std=gnu17
+%cpp -std=gnu++2a
+%h %hpp
+-I./include
+-I/usr/include
+

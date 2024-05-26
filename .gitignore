@@ -1,0 +1,26 @@
+# Compiled Object files
+*.o
+*.obj
+
+# Executables
+*.bin
+*.elf
+src/LSTDex
+bin/
+#.vscode/
+.cache/
+__pycache__/
+libarduinoSTL/
+libarduino/
+*.ini
+.d/
+pkg/
+*.tar.gz
+*.pkg.tar.zst
+l61/
+.ccls-cache/
+.kdev4/
+*.lex61
+/data
+l61bs.kdev4
+.idea/
