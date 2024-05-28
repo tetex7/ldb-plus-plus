@@ -4,7 +4,7 @@ EXE = $(NAME).exe
 LEX61 = $(NAME).lex61
 DEBUG = 1
 SYS_LIBS = 
-LIBS = -llua $(BOOST_LIBS) -lreadline -lrt
+LIBS = -llua $(BOOST_LIBS) -lreadline
 #-lluacpp
 LIB_INC = 
 #BOND = 115200
@@ -213,7 +213,7 @@ PLAS := -J./include
 
 # Optimization compiler flags
 GCCFLAG = -fPIC -Wno-sizeof-pointer-div -fno-strict-aliasing -fpermissive
-DFLAG = -D_L61=152
+DFLAG = -D_L61=152 -D_LDB=1
 BFLAG = 
 
 OPTFLAGS ?= $(OP_FLAG)

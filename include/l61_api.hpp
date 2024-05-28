@@ -38,7 +38,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <sys/shm.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
-#include <sol/sol.hpp>
+
 #ifndef TLOAD
 typedef bool FLAG;
 
@@ -123,7 +123,7 @@ extern "C" {
 
     struct debug_ctl_t
     {
-        WORD(*get_debuger)(lua_Hook debuger);
+        WORD(*set_debuger)(lua_Hook debuger);
         FLAG(*get_debug_flag)();
         void(*set_debug_flag)(FLAG v);
     };
@@ -150,8 +150,10 @@ struct l61_stat
     std::string user_name;
     std::string user_home;
     confg_t conf;
-    sol::state_view lstate;
+    //sol::state_view lstate;
 };
+
+
 
 struct mem_data_t
 {
@@ -163,9 +165,9 @@ struct mem_data_t
 struct ex_edata_t
 {
     l61_stat* const stat;
-    std::vector<std::string>* const spath;
+    std::vector<std::string>* const spaths;
     ctlfun_t* ctl;
-
+    DWORD(*api_version)();
 };
 
 /*__inline ex_edata_t* mk_new_edata(ex_edata_t* edata)
